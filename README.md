@@ -1,153 +1,411 @@
-Experiment 01: Activity Life Cycle
+JWP Practical Experiment: Online Book Store
 
-Aim
+AIM
 
-To create an Android application to understand the life cycle of an Activity.
+To design static web pages required for an online book store using HTML frames, hyperlinks, tables, and forms.
 
-Objective
+ALGORITHM
 
-To develop an Android application and understand the Activity life cycle in different scenarios.
+1. Create the home page using HTML frames.
+2. Create the top frame containing the college name and navigation links.
+3. Create the left frame containing department links.
+4. Create the right frame to display the home page and other contents.
+5. Create Login, Registration, Catalogue, and Order Confirmation pages.
+6. Link all pages using hyperlinks and frame targets.
+7. Execute "home.html" in a web browser.
 
-Apparatus / Tools / Equipment
+PROGRAM
 
-- Android Studio
-- Android Emulator or Android Device
-- Java
-- XML
+1. home.html
 
-Theory
+<html>
+<head>
+    <title>Online Book Store</title>
+</head>
 
-The Activity Life Cycle describes the different states an Android Activity goes through from creation to destruction.
+<frameset rows="40%,60%">
+    <frame src="top.html" name="topframe"
+           scrolling="NO" noresize>
 
-The main life cycle methods are:
+    <frameset cols="15%,85%">
+        <frame src="left.html" name="leftframe"
+               scrolling="NO" noresize>
 
-- "onCreate()" – Called when the Activity is first created.
-- "onStart()" – Called when the Activity becomes visible.
-- "onResume()" – Called when the Activity enters the foreground and the user can interact with it.
-- "onPause()" – Called when the Activity loses focus.
-- "onStop()" – Called when the Activity is no longer visible.
-- "onRestart()" – Called when a stopped Activity is about to start again.
-- "onDestroy()" – Called before the Activity is destroyed.
+        <frame src="right.html" name="rightframe">
+    </frameset>
+</frameset>
 
-Procedure
+</html>
 
-1. Open Android Studio and create a new Android project.
-2. Create a "MainActivity" and implement the Activity life cycle methods.
-3. Add Log messages inside each life cycle method.
-4. Create the user interface using "activity_main.xml".
-5. Run the application on an Android Emulator or Android device.
-6. Open Logcat using View → Tool Windows → Logcat.
-7. Observe the life cycle methods when the Activity starts, pauses, stops, restarts, and resumes.
-8. Record the output displayed in Logcat.
+2. top.html
 
-Program
+<html>
+<head>
+    <title>Top Frame</title>
+</head>
 
-1. MainActivity.java
+<body bgcolor="YellowGreen">
 
-package com.example.activitylifecycle;
+<center>
+    <h1>Online Book Store</h1>
+    <h3>Created & Maintained By MRCET</h3>
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.appcompat.app.AppCompatActivity;
+    <table width="100%" height="50%">
+        <tr align="center">
+            <td>
+                <a href="right.html" target="rightframe">
+                    HOME
+                </a>
+            </td>
 
-public class MainActivity extends AppCompatActivity {
+            <td>
+                <a href="login.html" target="rightframe">
+                    LOGIN
+                </a>
+            </td>
 
-    String tag = "Activity Life Cycle";
+            <td>
+                <a href="registration.html" target="rightframe">
+                    REGISTER
+                </a>
+            </td>
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Log.d(tag, "In the onCreate() event");
-    }
+            <td>
+                <a href="catalogue.html" target="rightframe">
+                    CATALOGUE
+                </a>
+            </td>
+        </tr>
+    </table>
+</center>
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(tag, "In the onStart() event");
-    }
+</body>
+</html>
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(tag, "In the onRestart() event");
-    }
+3. left.html
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(tag, "In the onResume() event");
-    }
+<html>
+<body bgcolor="bisque">
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(tag, "In the onPause() event");
-    }
+<center>
+    <h3>
+        <a href="cse.html" target="rightframe">CSE</a>
+        <br><br>
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(tag, "In the onStop() event");
-    }
+        <a href="ece.html" target="rightframe">ECE</a>
+        <br><br>
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(tag, "In the onDestroy() event");
-    }
-}
+        <a href="eee.html" target="rightframe">EEE</a>
+        <br><br>
 
-2. activity_main.xml
+        <a href="mech.html" target="rightframe">MECH</a>
+    </h3>
+</center>
 
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+</body>
+</html>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to MAD LAB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+4. right.html
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<html>
+<body bgcolor="orange">
 
-Sample Output
+<center>
+    <h2>Welcome to the Online Book Store</h2>
 
-When the application is launched, the following messages appear in Logcat:
+    <h3>
+        A Huge Collection of Engineering E-Books
+    </h3>
+</center>
 
-In the onCreate() event
-In the onStart() event
-In the onResume() event
+</body>
+</html>
 
-When the Activity is interrupted and becomes invisible:
+5. cse.html
 
-In the onPause() event
-In the onStop() event
+<html>
+<head>
+    <title>CSE</title>
+</head>
 
-When the stopped Activity is opened again:
+<body bgcolor="cyan">
 
-In the onRestart() event
-In the onStart() event
-In the onResume() event
+<center>
+    <h1>Computer Science and Engineering</h1>
 
-When the Activity is finished and destroyed:
+    <table align="center" border="1">
+        <tr>
+            <th>Text Books</th>
+        </tr>
+        <tr>
+            <td>Web Technologies</td>
+        </tr>
+        <tr>
+            <td>Java Programming</td>
+        </tr>
+        <tr>
+            <td>Computer Networks</td>
+        </tr>
+    </table>
+</center>
 
-In the onPause() event
-In the onStop() event
-In the onDestroy() event
+</body>
+</html>
 
-Note: The exact callback sequence depends on how the Activity is interrupted or closed. Android may not call "onDestroy()" if the process is terminated unexpectedly.
+6. ece.html
 
-Result
+<html>
+<head>
+    <title>ECE</title>
+</head>
 
-Thus, an Android application was successfully created to understand and demonstrate the Activity Life Cycle using Java, XML, and Logcat.
+<body bgcolor="Plum">
+
+<center>
+    <h1>Electronics and Communication Engineering</h1>
+
+    <h3>
+        <ul>
+            <li>Digital Circuits</li>
+            <li>Signals and Systems</li>
+            <li>Digital Communication</li>
+        </ul>
+    </h3>
+</center>
+
+</body>
+</html>
+
+7. eee.html
+
+<html>
+<head>
+    <title>EEE</title>
+</head>
+
+<body bgcolor="Plum">
+
+<center>
+    <h1>Electrical and Electronics Engineering</h1>
+
+    <h3>
+        <ul type="square">
+            <li>Concepts in Electric Circuits</li>
+            <li>Introduction to Electronic Engineering</li>
+            <li>Electrical Power</li>
+        </ul>
+    </h3>
+</center>
+
+</body>
+</html>
+
+8. mech.html
+
+<html>
+<head>
+    <title>MECH</title>
+</head>
+
+<body bgcolor="Plum">
+
+<center>
+    <h1>Mechanical Engineering</h1>
+
+    <h3>
+        <ol type="I">
+            <li>Theory of Machines</li>
+            <li>Automation and Robotics</li>
+            <li>Engineering Fluid Mechanics</li>
+        </ol>
+    </h3>
+</center>
+
+</body>
+</html>
+
+9. catalogue.html
+
+<html>
+<head>
+    <title>Catalogue</title>
+</head>
+
+<body bgcolor="pink">
+
+<center>
+    <h2>Book Catalogue</h2>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+
+        <tr>
+            <td>Web Technologies</td>
+            <td>Uttam K. Roy</td>
+            <td>Oxford University Press</td>
+            <td>531</td>
+            <td>
+                <form action="order.html">
+                    <input type="submit" value="Add to Cart">
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>PHP & MySQL Web Development</td>
+            <td>Luke Welling & Laura Thomson</td>
+            <td>Pearson</td>
+            <td>898</td>
+            <td>
+                <form action="order.html">
+                    <input type="submit" value="Add to Cart">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <p>Cost of one book = Book price + Shipping charges</p>
+</center>
+
+</body>
+</html>
+
+10. login.html
+
+<html>
+<head>
+    <title>Login</title>
+</head>
+
+<body bgcolor="pink">
+
+<center>
+    <h2>Enter Login Details</h2>
+
+    <form action="right.html" method="post">
+        <table>
+            <tr>
+                <td>Login ID:</td>
+                <td>
+                    <input type="text" name="userid">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Password:</td>
+                <td>
+                    <input type="password" name="password">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+                <td>
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+
+</body>
+</html>
+
+11. registration.html
+
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body bgcolor="#E4F0F8">
+
+<center>
+    <h2>Registration Form</h2>
+
+    <form action="right.html">
+        First Name:
+        <input type="text" name="firstname"
+               minlength="6" required>
+        <br><br>
+
+        Last Name:
+        <input type="text" name="lastname">
+        <br><br>
+
+        Email Address:
+        <input type="email" name="email" required>
+        <br><br>
+
+        Password:
+        <input type="password" name="pass"
+               minlength="6" required>
+        <br><br>
+
+        Address:
+        <textarea rows="2" cols="20" name="address"></textarea>
+        <br><br>
+
+        Mobile No:
+        <input type="tel" name="mobile">
+        <br><br>
+
+        Gender:
+        <input type="radio" name="gender" value="male">
+        Male
+
+        <input type="radio" name="gender" value="female">
+        Female
+        <br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</center>
+
+</body>
+</html>
+
+12. order.html
+
+<html>
+<head>
+    <title>Order Confirmation</title>
+</head>
+
+<body bgcolor="cyan">
+
+<center>
+    <h2>Your Order Is Confirmed</h2>
+
+    <h2>THANK YOU... Visit Again</h2>
+</center>
+
+</body>
+</html>
+
+PROCEDURE
+
+1. Open Visual Studio Code.
+2. Create a folder named "OnlineBookStore".
+3. Create all twelve HTML files given above.
+4. Copy the respective programs into each file and save them.
+5. Keep all files in the same folder.
+6. Open "home.html" in a web browser.
+7. Test the navigation links and forms.
+
+RESULT
+
+Thus, the static web pages for an Online Book Store were designed and executed successfully using HTML.
+
+NOTE
+
+This is a static HTML project. Login, registration, and order confirmation pages demonstrate form navigation only; they do not store user details, authenticate users, or process actual purchases.
